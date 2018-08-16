@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="content" method="upgrade">
+    <name>plg_content_imageresize</name>
+    <author>Alex White</author>
+    <creationDate>15.08.2018</creationDate>
+    <copyright>Copyright (C) 2018 geqo.ru All rights reserved.</copyright>
+    <license>GNU APGLv3; see COPYING</license>
+    <authorEmail>dev@geqo.ru</authorEmail>
+    <authorUrl>https://geqo.ru</authorUrl>
+    <version>1.1.0</version>
+    <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="imageresize">imageresize.php</filename>
+        <filename>COPYING</filename>
+        <folder>fields</folder>
+        <folder>vendor</folder>
+    </files>
+    <languages folder="lang">
+        <language tag="en-GB">en-GB.plg_content_imageresize.ini</language>
+        <language tag="en-GB">en-GB.plg_content_imageresize.sys.ini</language>
+        <language tag="ru-RU">ru-RU.plg_content_imageresize.ini</language>
+        <language tag="ru-RU">ru-RU.plg_content_imageresize.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/plugins/content/imageresize/fields">
+                <field
+                        name="test"
+                        type="test"
+                        label="PLG_CONTENT_IMAGERESIZE_TEST_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_TEST_DESCRIPTION"
+                />
+                <field
+                        name="ignore_sizes"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_IGNORE_SIZES_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_IGNORE_SIZES_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="thumbnail" label="PLG_CONTENT_IMAGERESIZE_THUMBNAIL_LABEL">
+                <field
+                        name="make_thumbnail"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        description="PLG_CONTENT_IMAGERESIZE_THUMBNAIL_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="thumbnail_width"
+                        type="number"
+                        min="0"
+                        max="5000"
+                        default="100"
+                        step="1"
+                        label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_WIDTH_THUMBNAIL_DESCRIPTION"
+                />
+            </fieldset>
+            <fieldset name="medium" label="PLG_CONTENT_IMAGERESIZE_MEDIUM_LABEL">
+                <field
+                        name="make_medium"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        description="PLG_CONTENT_IMAGERESIZE_MEDIUM_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="medium_width"
+                        type="number"
+                        min="0"
+                        max="5000"
+                        default="300"
+                        step="1"
+                        label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_WIDTH_MEDIUM_DESCRIPTION"
+                />
+            </fieldset>
+            <fieldset name="medium_large" label="PLG_CONTENT_IMAGERESIZE_MEDIUM_LARGE_LABEL">
+                <field
+                        name="make_medium_large"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        description="PLG_CONTENT_IMAGERESIZE_MEDIUM_LARGE_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="medium_large_width"
+                        type="number"
+                        min="0"
+                        max="5000"
+                        default="600"
+                        step="1"
+                        label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_WIDTH_MEDIUM_LARGE_DESCRIPTION"
+                />
+            </fieldset>
+            <fieldset name="large" label="PLG_CONTENT_IMAGERESIZE_LARGE_LABEL">
+                <field
+                        name="make_large"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        description="PLG_CONTENT_IMAGERESIZE_LARGE_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="large_width"
+                        type="number"
+                        min="0"
+                        max="5000"
+                        default="900"
+                        step="1"
+                        label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_WIDTH_LARGE_DESCRIPTION"
+                />
+            </fieldset>
+            <fieldset
+                    name="drag_and_drop"
+                    label="PLG_CONTENT_IMAGERESIZE_DRAG_AND_DROP_LABEL"
+                    description="PLG_CONTENT_IMAGERESIZE_DRAG_AND_DROP_DESCRIPTION"
+            >
+                <field
+                        name="drag_and_drop_enable"
+                        type="radio"
+                        default="0"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="drag_and_drop_width"
+                        type="number"
+                        min="0"
+                        max="5000"
+                        default="900"
+                        step="1"
+                        label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="ImageResize update server">https://geqo.ru/joomla/plg_content_imageresize/updates</server>
+    </updateservers>
+</extension>
