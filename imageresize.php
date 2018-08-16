@@ -234,5 +234,7 @@ class PlgContentImageResize extends CMSPlugin
 		if (! $gmagick && ! $imagick && ! $gd) {
 			return false;
 		}
+
+		return true;
 	}
 }
