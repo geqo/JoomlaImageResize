@@ -73,6 +73,11 @@ class PlgContentImageResize extends CMSPlugin
 			return true;
 		}
 
+		if (! $this->testExtensions()) {
+			$this->app->enqueueMessage(Text::_('PLG_CONTENT_IMAGERESIZE_EXT_NOT_FOUND'), 'error');
+			return true;
+		}
+
 		$path = JPATH_SITE . '/images/';
 
 		if ($this->params->get('make_thumbnail') == '1') {
@@ -208,5 +213,26 @@ class PlgContentImageResize extends CMSPlugin
 		}
 
 		return $fullPath;
+	}
+
+	protected function testExtensions()
+	{
+		$gmagick = $imagick = $gd = false;
+
+		if (extension_loaded('imagick')) {
+			$imagick = Text::_('PLG_CONTENT_TEST_PASS');
+		}
+
+		if (extension_loaded('gd')) {
+			$gd = Text::_('PLG_CONTENT_TEST_PASS');
+		}
+
+		if (extension_loaded('gmagick')) {
+			$gmagick = Text::_('PLG_CONTENT_TEST_PASS');
+		}
+
+		if (! $gmagick && ! $imagick && ! $gd) {
+			return false;
+		}
 	}
 }
