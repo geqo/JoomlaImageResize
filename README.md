@@ -15,3 +15,5 @@ Supports the processing and insertion of images into the editor with the Drag&am
 #### Minimal requirements
 PHP 5.6  
 Joomla 3.8
+#### Joomla 3.6
+For Joomla 3.6 select Joomla3.6 branch
