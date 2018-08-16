@@ -14,4 +14,4 @@ Supports the processing and insertion of images into the editor with the Drag&am
 ```https://geqo.ru/joomla/plg_content_imageresize/updates/latest/plg_content_imageresize.zip```
 #### Minimal requirements
 PHP 5.6  
-Joomla 3.8
+Joomla 3.6
