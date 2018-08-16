@@ -15,10 +15,6 @@
 
 */
 
-use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Plugin\CMSPlugin;
-
 defined('_JEXEC') or die;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -28,14 +24,14 @@ require __DIR__ . '/vendor/autoload.php';
  * @author      Alex White
  * @author      dev@geqo.ru
  */
-class PlgContentImageResize extends CMSPlugin
+class PlgContentImageResize extends JPlugin
 {
 	/**
 	 * @var bool
 	 */
 	protected $autoloadLanguage = true;
 	/**
-	 * @var \Joomla\CMS\Application\CMSApplication
+	 * @var \Joomla\Registry\Registry
 	 */
 	protected $app;
 
@@ -51,7 +47,7 @@ class PlgContentImageResize extends CMSPlugin
 	 */
 	public function __construct($subject, array $config = array())
 	{
-		$this->app = Factory::getApplication();
+		$this->app = JFactory::getApplication();
 		parent::__construct($subject, $config);
 	}
 
@@ -74,7 +70,7 @@ class PlgContentImageResize extends CMSPlugin
 		}
 
 		if (! $this->testExtensions()) {
-			$this->app->enqueueMessage(Text::_('PLG_CONTENT_IMAGERESIZE_EXT_NOT_FOUND'), 'error');
+			$this->app->enqueueMessage(JText::_('PLG_CONTENT_IMAGERESIZE_EXT_NOT_FOUND'), 'error');
 			return true;
 		}
 
@@ -89,7 +85,7 @@ class PlgContentImageResize extends CMSPlugin
 			);
 			if ($small) {
 				$this->app->enqueueMessage(
-					Text::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $small
+					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $small
 				);
 			}
 		}
@@ -103,7 +99,7 @@ class PlgContentImageResize extends CMSPlugin
 			);
 			if ($medium) {
 				$this->app->enqueueMessage(
-					Text::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $medium
+					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $medium
 				);
 			}
 		}
@@ -117,7 +113,7 @@ class PlgContentImageResize extends CMSPlugin
 			);
 			if ($mediumLarge) {
 				$this->app->enqueueMessage(
-					Text::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $mediumLarge
+					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $mediumLarge
 				);
 			}
 		}
@@ -131,7 +127,7 @@ class PlgContentImageResize extends CMSPlugin
 			);
 			if ($large) {
 				$this->app->enqueueMessage(
-					Text::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $large
+					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $large
 				);
 			}
 		}
@@ -178,7 +174,7 @@ class PlgContentImageResize extends CMSPlugin
 		try {
 			$image->resize((int)$width);
 		} catch (Exception $e) {
-			$this->app->enqueueMessage(Text::sprintf('PLG_CONTENT_IMAGERESIZE_WIDTH_ERROR', $width), 'error');
+			$this->app->enqueueMessage(JText::sprintf('PLG_CONTENT_IMAGERESIZE_WIDTH_ERROR', $width), 'error');
 			return false;
 		}
 
@@ -220,15 +216,15 @@ class PlgContentImageResize extends CMSPlugin
 		$gmagick = $imagick = $gd = false;
 
 		if (extension_loaded('imagick')) {
-			$imagick = Text::_('PLG_CONTENT_TEST_PASS');
+			$imagick = JText::_('PLG_CONTENT_TEST_PASS');
 		}
 
 		if (extension_loaded('gd')) {
-			$gd = Text::_('PLG_CONTENT_TEST_PASS');
+			$gd = JText::_('PLG_CONTENT_TEST_PASS');
 		}
 
 		if (extension_loaded('gmagick')) {
-			$gmagick = Text::_('PLG_CONTENT_TEST_PASS');
+			$gmagick = JText::_('PLG_CONTENT_TEST_PASS');
 		}
 
 		if (! $gmagick && ! $imagick && ! $gd) {
