@@ -16,4 +16,5 @@ Supports the processing and insertion of images into the editor with the Drag&am
 PHP 5.6  
 Joomla 3.8
 #### Joomla 3.6
-For Joomla 3.6 select Joomla3.6 branch
+For Joomla 3.6 select Joomla3.6 branch. Or download latest from
+```https://geqo.ru/joomla/plg_content_imageresize/Joomla3.6/plg_content_imageresize.zip```
