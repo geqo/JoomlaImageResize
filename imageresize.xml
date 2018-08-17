@@ -11,7 +11,7 @@
     <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
     <files>
         <filename plugin="imageresize">imageresize.php</filename>
-        <filename>LICENSE</filename>
+        <filename>LICENSE.txt</filename>
         <folder>fields</folder>
         <folder>vendor</folder>
     </files>
