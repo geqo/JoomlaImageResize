@@ -24,6 +24,7 @@ class JFormFieldTest extends JFormField
 	public function getInput()
 	{
 		$gmagick = $imagick = $gd = false;
+		$html = '';
 
 		if (extension_loaded('imagick')) {
 			$imagick = JText::_('PLG_CONTENT_TEST_PASS');
@@ -37,7 +38,11 @@ class JFormFieldTest extends JFormField
 			$gmagick = JText::_('PLG_CONTENT_TEST_PASS');
 		}
 
-		$html  = '<div class="span6">';
+		if ($gmagick === false && $imagick === false && $gd === false) {
+			$html .= '<div class="alert alert-error">' . JText::_('PLG_CONTENT_IMAGERESIZE_FULLTEST_FAIL') . '</div>';
+		}
+
+		$html .= '<div class="span6">';
 		$html .= '<div class="row"><div class="span3">GD: </div><div class="span3'. ($gd?' text-success':' text-error') .'">' . ($gd?:JText::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
 		$html .= '<div class="row"><div class="span3">Imagick: </div><div class="span3'. ($imagick?' text-success':' text-error') .'">' . ($imagick?:JText::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
 		$html .= '<div class="row"><div class="span3">Gmagick: </div><div class="span3'. ($gmagick?' text-success':' text-error') .'">' . ($gmagick?:JText::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
