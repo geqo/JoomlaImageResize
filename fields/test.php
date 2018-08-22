@@ -27,23 +27,28 @@ class JFormFieldTest extends FormField
 	public function getInput()
 	{
 		$gmagick = $imagick = $gd = false;
+		$html = '';
 
 		if (extension_loaded('imagick')) {
-			$imagick = Text::_('PLG_CONTENT_TEST_PASS');
+			$imagick = Text::_('PLG_CONTENT_IMAGERESIZE_TEST_PASS');
 		}
 
 		if (extension_loaded('gd')) {
-			$gd = Text::_('PLG_CONTENT_TEST_PASS');
+			$gd = Text::_('PLG_CONTENT_IMAGERESIZE_TEST_PASS');
 		}
 
 		if (extension_loaded('gmagick')) {
-			$gmagick = Text::_('PLG_CONTENT_TEST_PASS');
+			$gmagick = Text::_('PLG_CONTENT_IMAGERESIZE_TEST_PASS');
 		}
 
-		$html  = '<div class="span6">';
-		$html .= '<div class="row"><div class="span3">GD: </div><div class="span3'. ($gd?' text-success':' text-error') .'">' . ($gd?:Text::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
-		$html .= '<div class="row"><div class="span3">Imagick: </div><div class="span3'. ($imagick?' text-success':' text-error') .'">' . ($imagick?:Text::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
-		$html .= '<div class="row"><div class="span3">Gmagick: </div><div class="span3'. ($gmagick?' text-success':' text-error') .'">' . ($gmagick?:Text::_('PLG_CONTENT_TEST_FAIL')) . '</div></div>';
+		if ($gmagick === false && $imagick === false && $gd === false) {
+			$html .= '<div class="alert alert-error">' . Text::_('PLG_CONTENT_IMAGERESIZE_FULLTEST_FAIL') . '</div>';
+		}
+
+		$html .= '<div class="span6">';
+		$html .= '<div class="row"><div class="span3">GD: </div><div class="span3'. ($gd?' text-success':' text-error') .'">' . ($gd?:Text::_('PLG_CONTENT_IMAGERESIZE_TEST_FAIL')) . '</div></div>';
+		$html .= '<div class="row"><div class="span3">Imagick: </div><div class="span3'. ($imagick?' text-success':' text-error') .'">' . ($imagick?:Text::_('PLG_CONTENT_IMAGERESIZE_TEST_FAIL')) . '</div></div>';
+		$html .= '<div class="row"><div class="span3">Gmagick: </div><div class="span3'. ($gmagick?' text-success':' text-error') .'">' . ($gmagick?:Text::_('PLG_CONTENT_IMAGERESIZE_TEST_FAIL')) . '</div></div>';
 		$html .= '</div>';
 
 		return $html;
