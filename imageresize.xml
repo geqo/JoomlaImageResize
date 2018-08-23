@@ -55,7 +55,7 @@
                 <field
                         name="dev_messages"
                         type="message"
-                        label="PLG_CONTENT_IMAGERESIZE_MESSAGE_LABEL"
+                        hidden="true"
                 />
             </fieldset>
             <fieldset name="thumbnail" label="PLG_CONTENT_IMAGERESIZE_THUMBNAIL_LABEL">
