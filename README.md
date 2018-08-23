@@ -11,7 +11,7 @@ Supports the processing and insertion of images into the editor with the Drag&am
 #### Download from here
 ```git clone https://github.com/geqo/JoomlaImageResize.git```
 #### Or you can download it directly
-```https://geqo.ru/joomla/plg_content_imageresize/Joomla3.6/plg_content_imageresize.zip```
+```https://geqo.ru/joomla/plg_content_imageresize/Joomla3.6/latest/plg_content_imageresize.zip```
 #### Minimal requirements
 PHP 5.6  
 Joomla 3.6
