@@ -43,7 +43,7 @@ class JFormFieldMessage extends JFormField
 
 		$ssl = extension_loaded('openssl');
 
-		if ($curl === false && $ssl === false) {
+		if (! $curl && ! $ssl) {
 			return $message;
 		}
 
