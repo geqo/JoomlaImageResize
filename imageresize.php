@@ -65,7 +65,7 @@ class PlgContentImageResize extends JPlugin
 			return true;
 		}
 
-		if ($file->type !== 'image/png' && $file->type !== 'image/jpg') {
+		if ($file->type !== 'image/png' && $file->type !== 'image/jpg' && $file->type !== 'image/jpeg') {
 			return true;
 		}
 
