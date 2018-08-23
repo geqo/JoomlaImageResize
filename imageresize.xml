@@ -7,7 +7,7 @@
     <license>GNU APGLv3; see LICENSE</license>
     <authorEmail>dev@geqo.ru</authorEmail>
     <authorUrl>https://geqo.ru</authorUrl>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
     <files>
         <filename plugin="imageresize">imageresize.php</filename>

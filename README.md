@@ -18,3 +18,6 @@ Joomla 3.8
 #### Joomla 3.6
 For Joomla 3.6 select Joomla3.6 branch. Or download latest from
 ```https://geqo.ru/joomla/plg_content_imageresize/Joomla3.6/plg_content_imageresize.zip```
+#### Changelist
+23 August 2018, 2.1.2 - forgot about image/jpeg type :) Fixed.  
+22 August 2018, 2.1.1 - added developer messages.  
