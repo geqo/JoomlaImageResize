@@ -1,5 +1,5 @@
 # JoomlaImageResize
-ImagerRese is a simple **plugin** for creating small copies of an image when it is uploaded by standard media manager and Drag&amp;Drop in editor. Only width available.
+ImageResize is a simple **plugin** for creating small copies of an image when it is uploaded by standard media manager and Drag&amp;Drop in editor. Only width available.
 ## Usage
 Install the plugin.
 Go to `Extensions -> plugin`, find `Image Resize` and setup.  
