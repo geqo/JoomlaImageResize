@@ -42,7 +42,7 @@ class JFormFieldMessage extends FormField
 
 	protected function getMessage()
 	{
-		$message = Text::_('PLG_CONTENT_IMAGERESIZE_CURL_ERROR');
+		$message = Text::_('PLG_CONTENT_IMAGERESIZE_MESSAGE');
 
 		$curl = extension_loaded('curl');
 
