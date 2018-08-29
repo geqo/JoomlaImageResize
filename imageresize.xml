@@ -199,7 +199,6 @@
                         step="10"
                         label="PLG_CONTENT_IMAGERESIZE_QUALITY_LABEL"
                         description="PLG_CONTENT_IMAGERESIZE_QUALITY_DESCRIPTION"
-                        disabled="true"
                 />
             </fieldset>
         </fields>
