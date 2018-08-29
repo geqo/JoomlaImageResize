@@ -37,27 +37,22 @@ class JFormFieldMessage extends JFormField
 
 	protected function getMessage()
 	{
-		$message = JText::_('PLG_CONTENT_IMAGERESIZE_CURL_ERROR');
+		$message = JText::_('PLG_CONTENT_IMAGERESIZE_MESSAGE');
+		$lang    = JFactory::getLanguage();
+		$tag     = $lang->getTag();
+		$url     = 'http://geqo.ru/joomla/plg_content_imageresize/messages.php?lang=' . $tag;
 
-		$curl = extension_loaded('curl');
-
-		$ssl = extension_loaded('openssl');
-
-		if (! $curl && ! $ssl) {
-			return $message;
-		}
-
-		$lang = JFactory::getLanguage();
-		$tag  = $lang->getTag();
-		$url  = 'https://geqo.ru/joomla/plg_content_imageresize/messages.php?lang=' . $tag;
-
-		if ($curl) {
+		if (extension_loaded('curl')) {
 			return $this->getMessageByCURL($url);
 		}
 
-		if ($ssl) {
-			return $this->getMessageByFileGetContents($url);
+		$remote = $this->getMessageByFileGetContents($url);
+
+		if ($remote) {
+			return $remote;
 		}
+
+		return $message;
 	}
 
 	protected function getMessageByCURL($url)
