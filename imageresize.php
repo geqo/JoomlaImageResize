@@ -164,6 +164,11 @@ class PlgContentImageResize extends JPlugin
 		$imagick = new \PHPixie\Image();
 		/** @var PHPixie\Image\Drivers\Driver\Resource $image */
 		$image = $imagick->read($filepath);
+		$quality = 100;
+
+		if ($this->params->get('compress_enable', 0) == 1) {
+			$quality = $this->params->get('quality_ratio', 90);
+		}
 
 		if ($this->params->get('ignore_sizes', '0') == 0) {
 			if ($image->width() < $width) {
@@ -178,7 +183,7 @@ class PlgContentImageResize extends JPlugin
 			return false;
 		}
 
-		$image->save($path . '/' . $filename);
+		$image->save($path . '/' . $filename, null, $quality);
 
 		return $path . '/' . $filename;
 	}

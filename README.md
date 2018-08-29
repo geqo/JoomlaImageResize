@@ -16,5 +16,6 @@ Supports the processing and insertion of images into the editor with the Drag&am
 PHP 5.6  
 Joomla 3.6
 #### Changelist
-23 August 2018, 2.1.2 - forgot about image/jpeg type :) Fixed.  
-22 August 2018, 2.1.1 - added developer messages.  
+23 August 2018, 1.1.2 - forgot about image/jpeg type :) Fixed.  
+22 August 2018, 1.2.1 - added developer messages.
+29 August 2018, 1.3.0 - added default 10% compression for JPG, sure if it enabled.  

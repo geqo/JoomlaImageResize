@@ -7,7 +7,7 @@
     <license>GNU APGLv3; see LICENSE</license>
     <authorEmail>dev@geqo.ru</authorEmail>
     <authorUrl>https://geqo.ru</authorUrl>
-    <version>1.2.3</version>
+    <version>1.3.0</version>
     <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
     <files>
         <filename plugin="imageresize">imageresize.php</filename>
@@ -173,6 +173,33 @@
                         default="900"
                         step="1"
                         label="PLG_CONTENT_IMAGERESIZE_WIDTH_LABEL"
+                />
+            </fieldset>
+            <fieldset
+                    name="compress"
+                    label="PLG_CONTENT_IMAGERESIZE_COMPRESS_LABEL"
+                    description="PLG_CONTENT_IMAGERESIZE_COMPRESS_DESCRIPTION"
+            >
+                <field
+                        name="compress_enable"
+                        type="radio"
+                        default="1"
+                        label="PLG_CONTENT_IMAGERESIZE_ENABLE"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="quality_ratio"
+                        type="integer"
+                        default="90"
+                        first="10"
+                        last="100"
+                        step="10"
+                        label="PLG_CONTENT_IMAGERESIZE_QUALITY_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_QUALITY_DESCRIPTION"
+                        disabled="true"
                 />
             </fieldset>
         </fields>
