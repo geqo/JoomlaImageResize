@@ -164,10 +164,14 @@ class PlgContentImageResize extends JPlugin
 		$imagick = new \PHPixie\Image();
 		/** @var PHPixie\Image\Drivers\Driver\Resource $image */
 		$image = $imagick->read($filepath);
-		$quality = 100;
+		$enable = $this->params->get('compress_enable', 1);
 
-		if ($this->params->get('compress_enable', 0) == 1) {
+		if ($enable == 1) {
 			$quality = $this->params->get('quality_ratio', 90);
+		}
+
+		if ($enable == 0) {
+			$quality = 100;
 		}
 
 		if ($this->params->get('ignore_sizes', '0') == 0) {
