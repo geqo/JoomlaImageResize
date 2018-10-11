@@ -22,3 +22,4 @@ For Joomla 3.6 select Joomla3.6 branch. Or download latest from
 23 August 2018, 1.1.2 - forgot about image/jpeg type :) Fixed.  
 22 August 2018, 1.2.1 - added developer messages.  
 29 August 2018, 1.3.0 - added default 10% compression for JPG, sure if it enabled.
+11 October 2018, 1.4.1 - added PNG to JPG conversion
