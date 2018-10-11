@@ -7,7 +7,7 @@
     <license>GNU APGLv3; see LICENSE</license>
     <authorEmail>dev@geqo.ru</authorEmail>
     <authorUrl>https://geqo.ru</authorUrl>
-    <version>1.3.1</version>
+    <version>1.4.1</version>
     <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
     <files>
         <filename plugin="imageresize">imageresize.php</filename>
@@ -200,6 +200,17 @@
                         label="PLG_CONTENT_IMAGERESIZE_QUALITY_LABEL"
                         description="PLG_CONTENT_IMAGERESIZE_QUALITY_DESCRIPTION"
                 />
+                <field
+                        name="convert_to_jpg"
+                        type="radio"
+                        default="1"
+                        label="PLG_CONTENT_IMAGERESIZE_CONVERT_TO_JPG_LABEL"
+                        description="PLG_CONTENT_IMAGERESIZE_CONVERT_TO_JPG_DESCRIPTION"
+                        class="btn-group btn-group-yesno"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
             </fieldset>
         </fields>
     </config>

@@ -165,6 +165,7 @@ class PlgContentImageResize extends JPlugin
 		/** @var PHPixie\Image\Drivers\Driver\Resource $image */
 		$image = $imagick->read($filepath);
 		$enable = $this->params->get('compress_enable', 1);
+		$convert = $this->params->get('convert_to_jpg', 1);
 
 		if ($enable == 1) {
 			$quality = $this->params->get('quality_ratio', 90);
@@ -185,6 +186,11 @@ class PlgContentImageResize extends JPlugin
 		} catch (Exception $e) {
 			$this->app->enqueueMessage(JText::sprintf('PLG_CONTENT_IMAGERESIZE_WIDTH_ERROR', $width), 'error');
 			return false;
+		}
+
+		if ($convert == 1) {
+			$pathinfo = pathinfo($filename);
+			$filename = strtr($filename, $pathinfo['extension'], 'jpg');
 		}
 
 		$image->save($path . '/' . $filename, null, $quality);
