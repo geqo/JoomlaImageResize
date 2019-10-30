@@ -215,6 +215,6 @@
         </fields>
     </config>
     <updateservers>
-        <server type="extension" priority="1" name="ImageResize update server">https://geqo.ru/joomla/plg_content_imageresize/imageresize.xml</server>
+        <server type="extension" priority="1" name="ImageResize update server">https://geqo.space/joomla/plg_content_imageresize/imageresize.xml</server>
     </updateservers>
 </extension>
