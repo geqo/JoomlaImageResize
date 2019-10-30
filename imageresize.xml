@@ -3,23 +3,23 @@
     <name>plg_content_imageresize</name>
     <author>Alex White</author>
     <creationDate>15.08.2018</creationDate>
-    <copyright>Copyright (C) 2018 geqo.ru All rights reserved.</copyright>
+    <copyright>Copyright (C) 2018-2019 geqo.space All rights reserved.</copyright>
     <license>GNU APGLv3; see LICENSE</license>
-    <authorEmail>dev@geqo.ru</authorEmail>
-    <authorUrl>https://geqo.ru</authorUrl>
+    <authorEmail>dev@geqo.space</authorEmail>
+    <authorUrl>https://geqo.space</authorUrl>
     <version>1.4.1</version>
-    <description>PLG_CONTENT_IMAGERESIZE_XML_DESCRIPTION</description>
+    <description>PLG_CONTENT_IMAGERESIZE_DESCRIPTION</description>
     <files>
         <filename plugin="imageresize">imageresize.php</filename>
         <filename>LICENSE.txt</filename>
         <folder>fields</folder>
         <folder>vendor</folder>
     </files>
-    <languages folder="lang">
-        <language tag="en-GB">en-GB.plg_content_imageresize.ini</language>
-        <language tag="en-GB">en-GB.plg_content_imageresize.sys.ini</language>
-        <language tag="ru-RU">ru-RU.plg_content_imageresize.ini</language>
-        <language tag="ru-RU">ru-RU.plg_content_imageresize.sys.ini</language>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_content_imageresize.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_content_imageresize.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_content_imageresize.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_content_imageresize.sys.ini</language>
     </languages>
     <config>
         <fields name="params">
