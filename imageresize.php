@@ -76,73 +76,77 @@ class PlgContentImageResize extends JPlugin
 
 		$path = JPATH_SITE . '/images/';
 
-		if ($this->params->get('make_thumbnail') == '1') {
-			$small = $this->makeImage(
-				$path,
-				$file->filepath,
-				$file->name,
-				$this->params->get('thumbnail_width', 100)
-			);
-			if ($small) {
-				$this->app->enqueueMessage(
-					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $small
-				);
-			}
-		}
+		try {
+            if ($this->params->get('make_thumbnail') == '1') {
+                $small = $this->makeImage(
+                    $path,
+                    $file->filepath,
+                    $file->name,
+                    $this->params->get('thumbnail_width', 100)
+                );
+                if ($small) {
+                    $this->app->enqueueMessage(
+                        JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $small
+                    );
+                }
+            }
 
-		if ($this->params->get('make_medium') == '1') {
-			$medium = $this->makeImage(
-				$path,
-				$file->filepath,
-				$file->name,
-				$this->params->get('medium_width', 300)
-			);
-			if ($medium) {
-				$this->app->enqueueMessage(
-					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $medium
-				);
-			}
-		}
+            if ($this->params->get('make_medium') == '1') {
+                $medium = $this->makeImage(
+                    $path,
+                    $file->filepath,
+                    $file->name,
+                    $this->params->get('medium_width', 300)
+                );
+                if ($medium) {
+                    $this->app->enqueueMessage(
+                        JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $medium
+                    );
+                }
+            }
 
-		if ($this->params->get('make_medium_large') == '1') {
-			$mediumLarge = $this->makeImage(
-				$path,
-				$file->filepath,
-				$file->name,
-				$this->params->get('medium_large_width', 600)
-			);
-			if ($mediumLarge) {
-				$this->app->enqueueMessage(
-					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $mediumLarge
-				);
-			}
-		}
+            if ($this->params->get('make_medium_large') == '1') {
+                $mediumLarge = $this->makeImage(
+                    $path,
+                    $file->filepath,
+                    $file->name,
+                    $this->params->get('medium_large_width', 600)
+                );
+                if ($mediumLarge) {
+                    $this->app->enqueueMessage(
+                        JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $mediumLarge
+                    );
+                }
+            }
 
-		if ($this->params->get('make_large') == '1') {
-			$large = $this->makeImage(
-				$path,
-				$file->filepath,
-				$file->name,
-				$this->params->get('large_width', 900)
-			);
-			if ($large) {
-				$this->app->enqueueMessage(
-					JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $large
-				);
-			}
-		}
+            if ($this->params->get('make_large') == '1') {
+                $large = $this->makeImage(
+                    $path,
+                    $file->filepath,
+                    $file->name,
+                    $this->params->get('large_width', 900)
+                );
+                if ($large) {
+                    $this->app->enqueueMessage(
+                        JText::_('PLG_CONTENT_IMAGERESIZE_SAVED_IN') . ' ' . $large
+                    );
+                }
+            }
 
-		if ($this->params->get('drag_and_drop_enable') == '1') {
-			$image = $this->makeImage(
-				$path,
-				$file->filepath,
-				$file->name,
-				$this->params->get('drag_and_drop_width', 900)
-			);
-			if ($image) {
-				$file->filepath = $image;
-			}
-		}
+            if ($this->params->get('drag_and_drop_enable') == '1') {
+                $image = $this->makeImage(
+                    $path,
+                    $file->filepath,
+                    $file->name,
+                    $this->params->get('drag_and_drop_width', 900)
+                );
+                if ($image) {
+                    $file->filepath = $image;
+                }
+            }
+        } catch (Exception $e) {
+		    return false;
+        }
 
 		return true;
 	}
@@ -190,7 +194,7 @@ class PlgContentImageResize extends JPlugin
 
 		if ($convert == 1) {
 			$pathinfo = pathinfo($filename);
-			$filename = strtr($filename, $pathinfo['extension'], 'jpg');
+			$filename = rtrim($filename, $pathinfo['extension']) . 'jpg';
 		}
 
 		$image->save($path . '/' . $filename, null, $quality);
