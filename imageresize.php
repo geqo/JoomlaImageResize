@@ -198,7 +198,7 @@ class PlgContentImageResize extends CMSPlugin
 
         if ($convert == 1) {
             $pathinfo = pathinfo($filename);
-            $filename = strtr($filename, $pathinfo['extension'], 'jpg');
+            $filename = rtrim($filename, $pathinfo['extension']) . 'jpg';
         }
 
         $image->save($path . '/' . $filename, null, $quality);
